@@ -71,6 +71,7 @@
     <script src="{{ asset('user-assets/lib/lightbox/js/lightbox.min.js') }}"></script>
     <!-- Template Javascript -->
     <script src="{{ asset('user-assets/js/main.js') }}"></script>
+    @stack('script')
 </body>
 
 </html>

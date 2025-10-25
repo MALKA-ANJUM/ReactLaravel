@@ -30,6 +30,15 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('user-assets/css/style.css') }}" rel="stylesheet">
+    @stack('style')
+    <style>
+        .form-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+    </style>
 </head>
 
 <body>
@@ -59,7 +68,7 @@
                 </div>
                 <a href="contact.html" class="nav-item nav-link">Contact</a>
             </div>
-            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Get A Quote<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="{{ route('sign.in') }}" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Sign In<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->

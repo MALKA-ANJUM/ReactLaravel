@@ -16,7 +16,31 @@ class AuthController extends Controller
 
     public function signInStore(Request $request)
     {
-        return $request;
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string',
+            'remember' => 'nullable|in:on',
+        ]);
+        
+        $credendials = $request->only('email, password');
+        $remember = $request->only('remember') && $request->remember === 'on';
+
+        // attempt Login
+        if(Auth::attempt($credendials, $remember)){
+            $request->session()->regenerate();
+
+            $user = Auth::user();
+
+             if ($user->hasRole('admin')) {
+                return redirect()->back()->with('success', 'Welcome Admin!');
+            } else {
+                return redirect()->back()->with('success', 'Welcome!');
+            }
+        }
+
+        return back()->withErrors([
+            'email' => 'The provided credentials do not match our records.',
+        ])->withInput($request->only('email', 'remember'));
     }
 
     public function signUp()
@@ -45,9 +69,9 @@ class AuthController extends Controller
         Auth::login($user);
 
         if ($user->hasRole('admin')) {
-            return redirect()->route('admin.dashboard')->with('success', 'Welcome, Admin!');
+            return redirect()->route('sign.in')->with('success', 'Welcome, Admin!');
         } else {
-            return redirect()->route('user.dashboard')->with('success', 'Welcome to your account!');
+            return redirect()->route('sign.in')->with('success', 'Welcome to your account!');
         }
     }
 

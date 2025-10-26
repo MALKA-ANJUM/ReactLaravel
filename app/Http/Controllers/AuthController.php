@@ -21,22 +21,21 @@ class AuthController extends Controller
             'password' => 'required|string',
             'remember' => 'nullable|in:on',
         ]);
-        
-        $credendials = $request->only('email, password');
+        $credentials = $request->only('email', 'password');
         $remember = $request->only('remember') && $request->remember === 'on';
 
         // attempt Login
-        if(Auth::attempt($credendials, $remember)){
+        if(Auth::attempt($credentials, $remember)){
             $request->session()->regenerate();
-
             $user = Auth::user();
 
-             if ($user->hasRole('admin')) {
-                return redirect()->back()->with('success', 'Welcome Admin!');
+            if ($user->hasRole('admin')) {
+                return redirect()->route('admin.dashboard')->with('success', 'Welcome Admin!');
             } else {
-                return redirect()->back()->with('success', 'Welcome!');
+                return redirect()->route('user.dashboard')->with('success', 'Welcome!');
             }
         }
+
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
@@ -68,11 +67,7 @@ class AuthController extends Controller
 
         Auth::login($user);
 
-        if ($user->hasRole('admin')) {
-            return redirect()->route('sign.in')->with('success', 'Welcome, Admin!');
-        } else {
-            return redirect()->route('sign.in')->with('success', 'Welcome to your account!');
-        }
+        return redirect()->route('sign.in')->with('success', 'Registration done successfully!!');
     }
 
     public function forgotPassword()

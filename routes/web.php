@@ -11,6 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('sign-in', [AuthController::class, 'signIn'])->name('sign.in');
 Route::post('sign-in-store', [AuthController::class, 'signInStore'])->name('sign.in.store');
 Route::get('sign-up', [AuthController::class, 'signUp'])->name('sign.up');

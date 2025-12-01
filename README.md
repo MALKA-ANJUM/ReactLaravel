@@ -20,7 +20,7 @@ It provides secure user authentication including **login, registration, logout, 
 ## 🛠️ Tech Stack
 
 - **Backend:** Laravel 12, PHP 8.2+
-- **Authentication:** Laravel Breeze (API), Sanctum
+- **Authentication:** Laravel (API), Sanctum
 - **Database:** MySQL
 - **Frontend:** React (to be integrated later)
 

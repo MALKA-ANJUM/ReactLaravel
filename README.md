@@ -71,3 +71,5 @@ Edit config/cors.php:
 ```bash
 php artisan serve
 ```
+
+## By Malka Anjum 

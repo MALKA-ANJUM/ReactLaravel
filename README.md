@@ -71,4 +71,3 @@ Edit config/cors.php:
 php artisan serve
 ```
 
-## By Malka Anjum 

@@ -1,5 +1,5 @@
 # Laravel & React  Application
-This project is a **Laravel 12 API backend** built for a React frontend application.  
+This project is a **Laravel API backend** built for a React frontend application.  
 It provides secure user authentication, including **login, registration, logout, and user info** using **Laravel Breeze (API)** and **Laravel Sanctum**.
 
 ---

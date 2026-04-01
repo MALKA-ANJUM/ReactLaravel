@@ -6,7 +6,7 @@ It provides secure user authentication, including **login, registration, logout,
 
 ## 🚀 Features
 
-- Laravel 12 (latest version)
+- Laravel 12
 - RESTful API structure
 - User Registration & Login
 - Token-based Authentication (Sanctum)

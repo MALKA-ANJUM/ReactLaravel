@@ -1,13 +1,12 @@
-# Laravel 12 + React Authentication (Backend Setup)
-
-This project is a **Laravel 12 API backend** built for a React frontend application.  
-It provides secure user authentication including **login, registration, logout, and user info** using **Laravel Breeze (API)** and **Laravel Sanctum**.
+# Laravel & React  Application
+This project is a Laravel API backend built for a React frontend application.  
+It provides secure user authentication, including **login, registration, logout, and user info** using **Laravel Breeze (API)** and **Laravel Sanctum**.
 
 ---
 
 ## 🚀 Features
 
-- Laravel 12 (latest version)
+- Laravel 12
 - RESTful API structure
 - User Registration & Login
 - Token-based Authentication (Sanctum)
@@ -20,7 +19,7 @@ It provides secure user authentication including **login, registration, logout, 
 ## 🛠️ Tech Stack
 
 - **Backend:** Laravel 12, PHP 8.2+
-- **Authentication:** Laravel Breeze (API), Sanctum
+- **Authentication:** Laravel (API), Sanctum
 - **Database:** MySQL
 - **Frontend:** React (to be integrated later)
 
@@ -71,3 +70,4 @@ Edit config/cors.php:
 ```bash
 php artisan serve
 ```
+

@@ -4,13 +4,26 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserController;
+use App\Solid\PdfExport;
+use App\Solid\SaleReports;
 use Illuminate\Support\Facades\Route;
 
+
+
+// SOLID Principles
 Route::get('/', function () {
-    return view('home');
+
+    $saleReports = new SaleReports;
+    $pdfExport = new PdfExport;
+
+    return $pdfExport->export($saleReports->between('1 Jan 2026', '31 Jan 2026'));
 });
 
-Route::get('/', [HomeController::class, 'home'])->name('home');
+// Route::get('/', function () {
+//     return view('home');
+// });
+
+// Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('sign-in', [AuthController::class, 'signIn'])->name('sign.in');
@@ -31,3 +44,4 @@ Route::middleware('auth')->group(function(){
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 });
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solid;
+namespace App\Solid\SRP;
 
 class CsvExport 
 {

@@ -55,7 +55,7 @@ DB_PASSWORD=
 
 ### 4️⃣ Generate Application Key
 ```bash
-php artisan key:generate
+php artisan key: generate
 ```
 
 ## 🔒 Sanctum & CORS Configuration
